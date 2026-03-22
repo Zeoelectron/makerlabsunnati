@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unnati Labs</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI', sans-serif;
+background:linear-gradient(180deg,#0f0f0f,#1a1a1a);
+color:white;
+}
+
+/* CONTAINER */
+.section{
+padding:60px 20px;
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.hero-left{
+flex:1;
+min-width:280px;
+}
+
+.hero-right{
+flex:1;
+min-width:250px;
+text-align:center;
+}
+
+.hero img{
+width:100%;
+max-width:220px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,255,136,0.3);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+}
+
+}
+
+/* TEXT */
+
+h1{
+font-size:clamp(28px,5vw,48px);
+margin:0;
+background:linear-gradient(90deg,#00ff88,#00ccff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+h2{
+color:#00ff88;
+margin:10px 0;
+}
+
+h3{
+margin:10px 0;
+}
+
+p{
+font-size:clamp(14px,2.5vw,16px);
+color:#bbb;
+}
+.maker-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.maker-left{
+flex:1;
+min-width:280px;
+}
+
+.maker-right{
+flex:1;
+min-width:250px;
+text-align:center;
+}
+
+.illustration{
+width:100%;
+max-width:250px;
+border-radius:15px;
+margin-top:10px;
+}
+
+.quote{
+margin-top:15px;
+font-style:italic;
+color:#00ff88;
+font-size:18px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.maker-container{
+flex-direction:column;
+}
+}
+/* BUTTON */
+.button{
+display:inline-block;
+padding:12px 22px;
+background:linear-gradient(90deg,#00ff88,#00ccff);
+color:black;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+margin-top:15px;
+transition:0.3s;
+}
+
+.button:hover{
+transform:scale(1.05);
+}
+
+/* CARDS */
+.card{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+margin:15px auto;
+max-width:700px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,255,136,0.2);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+@media(max-width:768px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+
+/* FLOW STEPS */
+.step{
+margin:20px 0;
+padding:10px;
+border-left:3px solid #00ff88;
+text-align:left;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:12px;
+border-radius:8px;
+border:none;
+background:#222;
+color:white;
+font-size:14px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+outline:1px solid #00ff88;
+}
+
+.contact-form button{
+margin-top:10px;
+cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:40px;
+background:#111;
+color:#777;
+margin-top:40px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="section hero">
+
+<div class="hero-left">
+<h1>MAKER LABS 🚀</h1>
+<h2>Unnati Center for Science and Culture</h2>
+<p>Turning schools into discovery labs </p>
+<a class="button" href="#">Book a Demo</a>
+</div>
+
+<div class="hero-right">
+<img src="zeo.jpg">
+<h3>🤖 Meet Zeo</h3>
+<p style="color:#aaa;">Curious companion to curious young minds</p>
+</div>
+
+</div>
+
+<!-- PROBLEM -->
+<div class="section">
+
+<h2>⚠️ The Problem</h2>
+
+<div class="card">
+<p>Students memorize concepts but don’t experience them.</p>
+<p>Labs are underused and science feels abstract.</p>
+<p>Curiosity fades as learning becomes exam-focused.</p>
+</div>
+
+</div>
+
+<!-- SOLUTION -->
+<div class="section">
+
+<h2>💡 The Unnati Solution</h2>
+
+<div class="card">
+<p>Hands-on STEM experiments inside school campuses.</p>
+<p>Students build, test, observe, and truly understand.</p>
+<p>Simulations reinforce learning beyond the lab.</p>
+</div>
+
+</div>
+
+<!-- EXPERIENCES -->
+<div class="section">
+
+<h2>🧪 Sample Experiences</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>⚡ Electrostatics</h3>
+<p>Charge objects and build an electroscope.</p>
+</div>
+
+<div class="card">
+<h3>🌈 Light & Refraction</h3>
+<p>Discover bending of light and TIR.</p>
+</div>
+
+<div class="card">
+<h3>🚀 Projectile Motion</h3>
+<p>Launch and measure — connect to equations.</p>
+</div>
+
+<div class="card">
+<h3>🔊 Sound & Waves</h3>
+<p>Visualize vibrations and resonance.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- MAKER LAB FLOW -->
+<!-- MAKER LAB FLOW -->
+<div class="section">
+
+<h2>🧠 Inside an Unnati Maker Lab</h2>
+
+<div class="maker-container">
+
+<!-- LEFT: FLOW -->
+<div class="maker-left">
+
+<div class="card">
+
+<div class="step">
+<h3>🔮 1. Prediction Phase</h3>
+<p><i>“Will it go in or not?”</i></p>
+</div>
+
+<div class="step">
+<h3>⚡ 2. Live Demo</h3>
+<p>Shock + curiosity</p>
+</div>
+
+<div class="step">
+<h3>📐 3. Equation Reveal</h3>
+<p>PV = nRT • Snell’s Law • Newton’s Laws</p>
+</div>
+
+<div class="step">
+<h3>🎮 4. Simulation</h3>
+<p><b>Students tweak variables → own the concept</b></p>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT: IMAGE -->
+<div class="maker-right">
+
+<img src="curious.jpg" class="illustration">
+
+<p class="quote">“Every experiment begins with a question.”</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SIMULATION SECTION -->
+<div class="section">
+
+<h2>🎮 Explore the Concept</h2>
+
+<p>After the experiment, students dive deeper through interactive simulations.</p>
+
+<div class="card">
+
+<iframe 
+src="snell.html" 
+width="100%" 
+height="400" 
+style="border:none; border-radius:10px;">
+</iframe>
+
+</div>
+
+<p style="color:#aaa; margin-top:10px;">
+Change variables. Observe outcomes. Build intuition.
+</p>
+
+</div>
+<!-- OUTCOMES -->
+<div class="section">
+
+<h2>🎯 Outcomes</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🧑‍🎓 For Students</h3>
+<p>Deep understanding, curiosity, confidence.</p>
+</div>
+
+<div class="card">
+<h3>🏫 For Schools</h3>
+<p>Better engagement, stronger academic identity.</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- CONTACT FORM -->
+<div class="section">
+
+<h2>📩 Get in Touch</h2>
+<p>Bring Unnati to your school. Let’s start with a pilot session.</p>
+
+<div class="card">
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name" required>
+<input type="text" placeholder="School Name" required>
+<input type="email" placeholder="Email" required>
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="Tell us about your school or requirement..." rows="4"></textarea>
+
+<button type="submit" class="button">Request Demo 🚀</button>
+
+</form>
+
+</div>
+
+</div>
+<!-- FOOTER -->
+<div class="footer">
+<p>Unnati • Where Concepts Come Alive</p>
+</div>
+
+</body>
+</html>

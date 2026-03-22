@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Snell Simulation</title>
+
+<style>
+body{
+margin:0;
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+canvas{
+background:#222;
+margin-top:10px;
+border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h3>Snell's Law Explorer</h3>
+
+<canvas id="canvas" width="500" height="300"></canvas>
+
+<script>
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let centerX = canvas.width/2;
+let centerY = canvas.height/2;
+
+let angle = Math.PI/6;
+let dragging = false;
+
+const n1 = 1.5;
+const n2 = 1.0;
+
+canvas.addEventListener("mousedown", ()=>dragging=true);
+canvas.addEventListener("mouseup", ()=>dragging=false);
+canvas.addEventListener("mouseleave", ()=>dragging=false);
+
+canvas.addEventListener("mousemove", function(e){
+
+if(!dragging) return;
+
+let rect = canvas.getBoundingClientRect();
+let mx = e.clientX - rect.left;
+let my = e.clientY - rect.top;
+let dx = mx - centerX;
+let dy = centerY - my;
+
+let r = Math.sqrt(dx*dx + dy*dy);
+
+if(r > 5){
+    angle = Math.asin(dx / r);
+}
+
+
+draw();
+
+});
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+// boundary
+ctx.strokeStyle="white";
+ctx.lineWidth=2;
+ctx.beginPath();
+ctx.moveTo(0,centerY);
+ctx.lineTo(canvas.width,centerY);
+ctx.stroke();
+
+// normal
+ctx.setLineDash([5,5]);
+ctx.beginPath();
+ctx.moveTo(centerX,0);
+ctx.lineTo(centerX,canvas.height);
+ctx.stroke();
+ctx.setLineDash([]);
+
+// === INCIDENT RAY ===
+let len = 150;
+
+let ix = centerX - len*Math.sin(angle);
+let iy = centerY - len*Math.cos(angle);
+
+ctx.strokeStyle="yellow";
+ctx.lineWidth=3;
+
+ctx.beginPath();
+ctx.moveTo(ix,iy);
+ctx.lineTo(centerX,centerY);
+ctx.stroke();
+
+// 🔵 draw draggable point
+ctx.fillStyle="yellow";
+ctx.beginPath();
+ctx.arc(ix, iy, 6, 0, Math.PI*2);
+ctx.fill();
+
+// === CALCULATIONS ===
+let sin2 = (n1/n2)*Math.sin(angle);
+
+// === DISPLAY ANGLE ===
+ctx.fillStyle="white";
+ctx.font="14px Arial";
+ctx.fillText("θ₁ = " + (angle*180/Math.PI).toFixed(1) + "°", 10, 20);
+
+// === TIR ===
+if(sin2 >= 1){
+
+let rx = centerX + len*Math.sin(angle);
+let ry = centerY - len*Math.cos(angle);
+
+ctx.strokeStyle="cyan";
+
+ctx.beginPath();
+ctx.moveTo(centerX,centerY);
+ctx.lineTo(rx,ry);
+ctx.stroke();
+
+ctx.fillStyle="#00ff88";
+ctx.fillText("Total Internal Reflection",10,40);
+
+return;
+}
+
+// === REFRACTION ===
+let theta2 = Math.asin(sin2);
+
+let tx = centerX + len*Math.sin(theta2);
+let ty = centerY + len*Math.cos(theta2);
+
+ctx.strokeStyle="lime";
+
+ctx.beginPath();
+ctx.moveTo(centerX,centerY);
+ctx.lineTo(tx,ty);
+ctx.stroke();
+
+// show θ₂
+ctx.fillStyle="white";
+ctx.fillText("θ₂ = " + (theta2*180/Math.PI).toFixed(1) + "°", 10, 60);
+
+}
+
+// initial draw
+draw();
+
+</script>
+</body>
+</html>
